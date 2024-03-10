@@ -1,0 +1,20 @@
+{
+"instructions_readme": "1) Open Chrome, 2) go to chrome://tracing, 3) click Load, 4) navigate to this file.",
+
+"traceEvents":[
+{ "pid": "Unity", "ph":"M", "name": "process_name", "args": {"name": "Unity"} },
+{ "pid": "Unity", "ph":"M", "name": "process_sort_index", "args": {"sort_index": -100} },
+{ "pid": "Unity", "tid": 1, "ph":"M", "name": "thread_name", "args": {"name": ""} },
+{ "pid": "Unity", "tid": 1,"ts": 1.71006754904614E+15,"dur": 2127491, "ph":"X", "name": "Build player"},
+{ "pid": "Unity", "tid": 1,"ts": 1.71006754908957E+15,"dur": 38653, "ph":"X", "name": "Preprocess Player"},
+{ "pid": "Unity", "tid": 1,"ts": 1.71006754914801E+15,"dur": 1984955, "ph":"X", "name": "Prepare For Build"},
+{}
+
+],
+"meta_datetime": "03/10/2024 15:45:51",
+"meta_command_line": "\"C:\\Program Files\\Unity\\Hub\\Editor\\2021.3.36f1\\Editor\\Unity.exe\" -projectpath C:\\Users\\looka\\CardMatchingGame -useHub -hubIPC -cloudEnvironment production -licensingIpc LicenseClient-looka -hubSessionId ff3fd72b-5e81-40ab-bd94-7887a835d0ea -accessToken rwPPoPsmkU3a-OVUuk2pJ6ImpX6yzmTPAIe1S_o3Lfw011f",
+"meta_command_line_args": "C:\\Program Files\\Unity\\Hub\\Editor\\2021.3.36f1\\Editor\\Unity.exe -projectpath C:\\Users\\looka\\CardMatchingGame -useHub -hubIPC -cloudEnvironment production -licensingIpc LicenseClient-looka -hubSessionId ff3fd72b-5e81-40ab-bd94-7887a835d0ea -accessToken rwPPoPsmkU3a-OVUuk2pJ6ImpX6yzmTPAIe1S_o3Lfw011f",
+"meta_user_name": "looka",
+"meta_os_version": "Microsoft Windows NT 10.0.22631.0",
+"meta_cpu_count": "12"
+}
