@@ -14,10 +14,21 @@ public class GamePlayController : MonoBehaviour
     public Camera mainCam;
 
     public Text level;
+    public Text scoreText;
+
 
     private void OnEnable()
     {
         level.text = "LEVEL NO " + (PrefHandler.Level + 1);
+        ScoreUpdate(0);
+    }
+
+    public float score;
+
+    public void ScoreUpdate(float updateScore)
+    {
+        score += updateScore;
+        scoreText.text = "Score: " + (int)score;
     }
 
     private void LateUpdate()
@@ -42,7 +53,6 @@ public class GamePlayController : MonoBehaviour
         {
             SoundManager.instance.PlayOneTime(SoundName.ButtonClick);
         }
-
     }
 
     public void Restart()
@@ -53,7 +63,6 @@ public class GamePlayController : MonoBehaviour
         {
             SoundManager.instance.PlayOneTime(SoundName.ButtonClick);
         }
-
     }
 
     private void SelectObject(CardScript selectedObject)
@@ -78,9 +87,9 @@ public class GamePlayController : MonoBehaviour
             {
                 SoundManager.instance.PlayOneTime(SoundName.CardSet);
             }
+
             CheckPairMatch();
         }
-       
     }
 
     private void CheckPairMatch()
@@ -88,14 +97,10 @@ public class GamePlayController : MonoBehaviour
         if (firstSelectedObject.fruitsType.Equals(secondSelectedObject.fruitsType))
         {
             StartCoroutine(OnPairMatched());
-            
-
         }
         else
         {
             StartCoroutine(HideNonMatchingPairs());
-         
-            
         }
     }
 
@@ -112,26 +117,27 @@ public class GamePlayController : MonoBehaviour
                 print("I AM WORKING");
                 yield return null;
             }
+
             card.gameObject.SetActive(false);
         }
     }
 
     private IEnumerator OnPairMatched()
     {
-        
         yield return new WaitForSeconds(delayBeforeHidingNonMatchingPairs);
         Vector3 position = moveTowardsPosition.transform.position;
         var temp1 = firstSelectedObject;
         var temp2 = secondSelectedObject;
         StartCoroutine(MoveToPosition(position, temp1));
         StartCoroutine(MoveToPosition(position, temp2));
+        ReferenceManager.Instance.gamePlayController.ScoreUpdate(200);
+
         if (SoundManager.instance)
         {
             SoundManager.instance.PlayOneTime(SoundName.Matched);
         }
-       
-        
-       
+
+
         firstSelectedObject = null;
         secondSelectedObject = null;
         yield return new WaitForSeconds(delayBeforeHidingNonMatchingPairs);

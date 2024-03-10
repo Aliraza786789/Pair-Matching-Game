@@ -13,6 +13,7 @@ public class ReferenceManager : MonoBehaviour
     public static LevelScript LevelScript;
     public LoadingScreenEventListner loadingScreen;
     public GameManager gameManager;
+    public GamePlayController gamePlayController;
     private void Awake()
     {
         Instance = this;
